@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+
+    input, span, select, button, th{
+        position: fixed;
+        opacity: 0.85;
+    }
+    .bonus{
+        width: 70px;
+    }
+    .romaneio{
+        left: 100px;
+        width: 70px;
+    }
+    .tipoDevolucao{
+        left: 195px;
+        width: 150px;
+    }
+    .data{
+        left: 365px;
+        width: 130px;
+        height: 18px;
+    }
+
+    .funcionarios{
+        left: 520px;
+    }
+    .funcionarios2{
+        left: 857px;
+    }
+    select{
+        height: 22px;
+    }
+
+    .cliente{
+        left: 545px;
+        top: 86px;
+        width: 100px;
+    }
+    #campo{
+        background-color: rgb(54,54,54);
+        width: 1000%;
+        height: 100px;
+        position: fixed;
+        padding: 6px;
+        z-index: 800;
+        color: white;
+    }
+    body{
+        width: 100%;
+        height: 100%;
+    }
+    span.motivo{
+        top: 69px;
+    }
+    span.cliente{
+        top: 69px;
+    }
+    #inform{
+        left: 648px;
+        top: 0px;
+        z-index: 20;
+    }
+    .data#ultimo{
+        left: 668px;
+        height: 18px;
+    }
+    span.data#ultimo{
+        top: 69px;
+    }
+
+    select.motivo{
+        display: none;
+        width: 480px;
+        height: 21px;
+    }
+    input.motivo{
+        width: 473px;
+        padding-left: 3px;
+    }
+
+    body{
+        background-color: rgb(79,79,79);
+        width: 100%;
+    }
+
+    .status{
+        top: 87px;
+        left: 821px;
+        height: 21px;
+    }
+    span.status{
+        top: 70px;
+        left: 820px;
+    }
+    select.status, input.obs{
+        z-index: 2000;
+    }
+
+    .obs{
+        top: 87px;
+        left: 970px;
+        width: 310px;
+    }
+    span.obs{
+        top: 69px;
+        left: 970px;
+    }
+    #reset{
+        top: 32px;
+        left: 1233px;
+        z-index: 1000;
+    }
+
+    th, td{
+        border: 1px solid black;
+        padding: 3px;
+        position: relative;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 13.7px;
+    }
+    th{
+        background-color: white;
+        z-index: 500;
+    }
+    
+    #campoSenha{
+        border-radius: 20%;
+        width: 150px;
+        height: 20px;
+    }
+</style>
+
+</head>
+<body>
+
+<div id ='campo'>
+<span class='bonus'>Nº Bônus</span>
+<span class="romaneio">Romaneio</span>
+<span class="tipoDevolucao">Tipo Devolução</span>
+<span class="data">Data</span>
+<span class="funcionarios">Func.Cancelamento</span>
+<span class="funcionarios2">Func.Solicitação</span>
+<span class="motivo">Motivo</span>
+<span class="cliente">Cód. Cliente</span>
+<span class="data" id="ultimo">Data Limite</span>
+<span class="status" >Nova Bônus</span>
+<span class="obs" >Observação</span>
+
+<br>
+<input class = 'bonus' maxlength="7" type = 'text'/>
+<input class = 'romaneio' maxlength="6" type = 'text'/>
+<select class = 'tipoDevolucao' id ='tipoDevolucao'>
+    <option id = 'um' value='1'>DEVOLUÇÃO</option>
+    <option id = 'dois' value='2'>FALTA</option>
+    <option id = 'tres' value='3'>DEVOLUÇÃO/FALTA</option>
+</select>
+<input class = 'data' type = 'date' value="2019-01-01" max="2030-01-01"/>
+<select class = 'funcionarios' id = 'func'>
+    <option value='func1'>ALEXANDRA MITRI DE MORAES</option>
+    <option value='func2'>ANA PAULA RODRIGUES SANTOS</option>
+    <option value='func3'>ANDERSON SALES SANTOS</option>
+    <option value='func4'>CARLA DO PRADO FOM</option>
+    <option value='func5'>CLEITON COSTA DOS SANTOS</option>
+    <option value='func6'>FERNANDA OCAMPOS LIBERATO</option>
+    <option value='func7'>GABRIELA PEREIRA DOS REIS</option>
+    <option value='func8'>GRACE KELLY RODRIGUES LJ02</option>
+    <option value='func9'>HOSANA R. DE LUNA S. HENRIQUE</option>
+    <option value='func10'>KATIA VALÉRIO GUIMARÃES</option>
+    <option value='func11'>LEONARDO DA SILVA SANTOS</option>
+    <option value='func12'>LUCIANE CANTARELLI</option>
+    <option value='func13'>MEIRILANE ARRUDA SILVA</option>
+    <option value='func14'>PAULINE ALVES CIRILO</option>
+    <option value='func15'>SERGIO VIEIRA DULTRA</option>
+    <option value='func16'>SILVANA DA SILVA</option>
+    <option value='func17'>THAYNA ROBERTA SOARES</option>
+    <option value='func18'>VINICIUS EUGENIO DA SILVA</option>
+    <option value='func19'>JOYCE SILVA FARIAS</option>
+    <option value='func20'>VIVIANE APARECIDA BARBOSA DOS SANTOS</option>
+    <option value='func21'>ERIKA THAIS ARAUJO ALVES DOS SANTOS</option>
+    <option value='func22'>JAQUELINE FOLMER DOS SANTOS</option>
+    <option value='func23'>THIAGO DE ARAUJO ANDREZA</option>
+    <option value='func24' selected='selected'>ALEXSANDER BATISTA DOS SANTOS</option>
+    <option value='func25'>DOUGLAS ANTONIO MENEZES PESSOA</option>
+    <option value='func26'>SIDNEI DE JESUS SANTOS</option>
+    <option value='func27'>MARCOS ANTONIO DOS SANTOS</option>
+    <option value='func28'>CHARLES RIBEIRO LIMA</option>
+</select>
+<select class="funcionarios2" id = "funcionario2">
+</select><br><br><br>
+<input id="tags" class = "motivo" maxlength="63" type="text"/>
+<select class="motivo" id="motivo3">
+</select>
+<button style="left: 495px;" class="motivo">Edit</button>
+<input class="cliente" type="text" maxlength="6"/>
+<input class="data" id="ultimo" type="date" max="2030-01-01"/>
+<div id="inform" style="background-color: rgb(47,79,79); width: 150px; height: 40px; position: absolute; color: rgb(238,230,133); padding: 5px; text-align: center;">Verificar na rotina 9819 ou outro...</div>
+
+<!-- MOTIVOS PRÉ-DEFINIDOS-->
+<div id ='todosMotivos'>
+    <input type='hidden' value = 'MOT. PAGOU SEM COMPROVANTE'>
+    <input type='hidden' value = 'ERRO DE LANÇAMENTO'>
+    <input type='hidden' value = 'CLIENTE EFETUOU DESCONTO NO BOLETO'>
+    <input type='hidden' value = 'LANÇADO A NOTA NA CONTA ERRADA'>
+    <input type='hidden' value = 'FALTA DO CLIENTE'>
+    <input type='hidden' value = 'MOTORISTA RELATOU QUANTIDADE MENOR'>
+    <input type='hidden' value = 'NÃO FOI RELATADA A DEVOLUÇÃO DO CLIENTE'>
+    <input type='hidden' value = 'A NOTA DO CLIENTE IA PAGAR, POREM GEROU DESCONTO'>
+    <input type='hidden' value = 'LANÇOU NOTA DE DEVOLUÇÃO ERRADA'>
+    <input type='hidden' value = 'NÚMERO DA N.F FOI GERADA ERRADA'>
+    <input type='hidden' value = 'NÃO FOI GERADA N.F DE DEVOLUÇÃO'>
+    <input type='hidden' value = 'ERROU O Nº DA NOTA DE DEVOLUÇÃO'>
+    <input type='hidden' value = 'MOTORISTA NÃO RELATOU QUE TINHA NOTA DE DEVOLUÇÃO'>
+    <input type='hidden' value = 'NÃO GEROU CONTAS A PAGAR'>
+    <input type='hidden' value = 'ERA PRA GERAR CRÉDITO, POREM GEROU DESCONTO'>
+    <input type='hidden' value = 'NÃO GEROU A NOTA DE DEVOLUÇÃO'>
+    <input type='hidden' value = 'GEROU NOTA À PAGAR, PORÉM É DESCONTO'>
+    <input type='hidden' value = 'ERROU NA FORMA DE PAGAMENTO'>
+    <input type='hidden' value = 'QUANTIDADE ERRADA'>
+    <input type='hidden' value = 'MOT. RELATOU NÚMERO DA N.F ERRADO'>
+    <input type='hidden' value = 'TRANSP. NÃO RELATOU QUE TINHA N.F DO CLIENTE'>
+    <input type='hidden' value = 'HAVIA N.F PORÉM LANÇOU N.F DE DEVLUÇÃO'>
+    <input type='hidden' value = 'MOT. RELATOU PRODUTO ERRADO'>
+    <input type='hidden' value = 'ERA PARA CANCELAR PORÉM FEZ DESCONTO'>
+    <input type='hidden' value = 'TEM NOTA DE DEVOLUÇÃO DO CLIENTE PORÉM GEROU SEM A NOTA'>
+    <input type='hidden' value = 'DEV. COM FORMA DE PAGAMENTO ERRADA'>
+    <input type='hidden' value = 'MOT. RELATOU QUANTIDADE ERRADA'>
+    <input type='hidden' value = 'LANÇOU DEVOLUÇÃO COM CNPJ ERRADO'>
+    <input type='hidden' value = 'CLIENTE ACHOU A MERCADORIA'>
+    <input type='hidden' value = 'FEZ DESCONTO, POREM É A PAGAR'>
+    <input type='hidden' value = 'DEVOLUÇÃO FEITA NO COD CLIENTE ERRADO'>
+    <input type='hidden' value = 'NF DO CLIENTE CALCELADA'>
+    <input type='hidden' value = 'CLIENTE EMITIU NOTA DE CNPJ ERRADO'>
+    <input type='hidden' value = 'MOTORISTA RELATOU QUANTIDADE MAIOR'>
+    <input type='hidden' value = 'MOT. PAGOU, PORÉM DEU DESCONTO'>
+    <input type='hidden' value = 'DEVOLUÇÃO COM QUANTIDADE ERRADA'>
+    <input type='hidden' value = 'TEM VALE PARA MOTORISTA E SERÁ DESCONTADO'>
+    <input type='hidden' value = 'LANÇOU NOTA A PAGAR, PORÉM É DESCONTO'>
+    <input type='hidden' value = 'NOVO MOTIVO'>
+    <input type='hidden' value = 'FORMA DE PAGAMENTO ERRADA'>
+    <input type='hidden' value = 'CANCELOU NOTA ERRADA'>
+    <input type='hidden' value = 'NÃO LANÇOU NOTA DE DEVOLUÇÃO'>
+</div>
+<!-- MOTIVOS PRÉ-DEFINIDOS-->
+<br>
+</div>
+
+<select class="status" id = "status">
+    <option value="1">OK</option>
+    <option value="2" selected='selected'>AGUARDANDO...</option>
+</select>
+<input class = "obs" type="text" placeholder="digite..." maxlength="41"/>
+<button id ='reset'>Reset</button>
+<button id ='registrar' style="position: fixed; left: 1214px; top: 60px;z-index: 1000;">Registrar</button>
+<input id='campoSenha' type='password' placeholder="Informe a senha..."/>
+<button id="btnExport" style="position:absolute; left:1300px;z-index: 2000; width: 60px;top: 35px; height: 50px; text-align: center; font-family: Arial, Helvetica, sans-serif; font-size: 12px;">Exportar Excel</button>
+<div id = "copyR" style="position: absolute;top: 2px;left: 1168px;z-index: 2000;color:gainsboro; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: 11px; width: 200px;">&copy; 2019 alexsander_santos@outlook.com</div>
+<br><br><br><br><br><br>
+<table id ='tabela'>
+    <thead>
+        <tr>
+            <th>Nº Bônus</th>
+            <th>Romaneio</th>
+            <th>Tipo Devolução</th>
+            <th>Data solic.</th>
+            <th>Func. Cancelamento</th>
+            <th>Func. Solicitação</th>
+            <th>Motivo</th>
+            <th>Cliente</th>
+            <th>Data Limite</th>
+            <th>Nova Bonus</th>
+            <th>Observação</th>
+        </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="jquery.btechco.excelexport.js"></script>
+<script src="jquery.base64.js"></script>
+<script>
+
+$(document).ready(function(){
+
+
+$("#btnExport").click(function () {
+            $("#tabela").btechco_excelexport({
+                containerid: "tabela"
+               , datatype: $datatype.Table
+               , filename: 'TabelaExportada'
+            });
+        })
+        .on("mouseover", function(){$(this).css({'background-color':'rgb(50,205,50)','color':'white'})})
+        .on("mouseout", function(){$(this).css({"background-color":$('button.motivo').css("background-color"),"color":"black"})});
+
+
+$('input.bonus').keydown(function(){
+    if(this.value.length == 7){
+        $('input.romaneio').focus();
+    }
+});
+
+$('input.romaneio').keydown(function(){
+    if(this.value.length == 6){
+        $('select.tipoDevolucao').focus();
+    }
+});
+
+$('select.tipoDevolucao').keydown(function(e){
+    if(e.keyCode == 13){
+        $('input.data:first').focus();
+    }
+});
+
+$('input.data:first').keydown(function(e){
+    if(e.keyCode == 13){
+        $('select.funcionarios').focus();
+    }
+});
+
+$('select.funcionarios').keydown(function(e){
+    if(e.keyCode == 13){
+        $('select.funcionarios2').focus();
+    }
+});
+
+$('select.funcionarios2').keydown(function(e){
+    if(e.keyCode == 13){
+        $('input.motivo').focus();
+    }
+});
+
+$('input.motivo,select.motivo').keydown(function(e){
+    if(e.keyCode == 13){
+        $('input.cliente').focus();
+    }
+});
+
+$('input.cliente').keydown(function(e){
+    if(e.keyCode == 13 || this.value.length == 6){
+        $('input.data#ultimo').focus();
+    }
+});
+
+$('input.data#ultimo').keydown(function(e){
+    if(e.keyCode == 13){
+        $('select.status').focus();
+    }
+});
+
+$('select.status').keydown(function(e){
+    if(e.keyCode == 13){
+        $('input.obs').focus();
+    }
+});
+
+$('input.obs').keydown(function(e){
+    if(e.keyCode == 13){
+        $('#registrar').focus();
+    }
+});
+
+var cpy = "© 2019 alexsander_santos@outlook.com";
+if($('#copyR').text() != cpy){
+document.body.innerHTML = "..."
+}
+
+
+//localStorage.removeItem('x');
+
+$('table').on('dblclick', function(e){
+    var tag = e.target.tagName;
+    if(tag == 'TD'){
+    var tr = e.target.parentNode.id;
+    var confirmar = confirm("Deseja excluir?");
+    if(confirmar == true){
+        $(tr).remove();
+        localStorage.removeItem(tr);
+        history.go(0);
+        alert('Linha Excluída!');
+    }
+    }
+});
+
+
+$('input#campoSenha').hide();
+
+$('#reset').click(function(){
+
+ $('input#campoSenha').show();
+
+});
+
+$(document).on('mousemove', function(e){
+    $('input#campoSenha').css({'position':'absolute','z-index':'2000', 'left':(e.clientX - 50) + 'px',
+    'top':(e.clientY - 15)+ 'px'}).focus().on('keydown', function(e){
+        if(e.keyCode == 13 && $('input#campoSenha').val() == "alex"){
+            localStorage.removeItem('x');
+            $('input#campoSenha').hide();
+            history.go(0);
+        }else if(e.keyCode == 13 && $('input#campoSenha').val() != "alex"){
+            $('input#campoSenha').hide();
+        }
+    });
+});
+
+
+function coresTd(){
+
+$('td.novaBonus').each(function(e){
+
+var cores = ['background-color','rgb(205,38,38)','rgb(46,139,87)','color','rgb(232,232,232)'];
+
+    if($(this).text() == "AGUARDANDO..."){
+        $(this).css(cores[0],cores[1]).css(cores[3],cores[4]);
+        // PROXIMO
+        $(this).next().css(cores[0],cores[1]).css(cores[3],cores[4]);
+        // ANTERIORES
+        $(this).prev().css(cores[0],cores[1]).css(cores[3],cores[4]);
+        $(this).prev().prev().css(cores[0],cores[1]).css(cores[3],cores[4]);
+        $(this).prev().prev().prev().css(cores[0],cores[1]).css(cores[3],cores[4]);
+        $(this).prev().prev().prev().prev().css(cores[0],cores[1]).css(cores[3],cores[4]);
+        $(this).prev().prev().prev().prev().prev().css(cores[0],cores[1]).css(cores[3],cores[4]);
+        $(this).prev().prev().prev().prev().prev().prev().css(cores[0],cores[1]).css(cores[3],cores[4]);
+        $(this).prev().prev().prev().prev().prev().prev().prev().css(cores[0],cores[1]).css(cores[3],cores[4]);
+        $(this).prev().prev().prev().prev().prev().prev().prev().prev().css(cores[0],cores[1]).css(cores[3],cores[4]);
+        $(this).prev().prev().prev().prev().prev().prev().prev().prev().prev().css(cores[0],cores[1]).css(cores[3],cores[4]);
+    }else{
+        $(this).css(cores[0],cores[2]).css(cores[3],cores[4]);
+        // PROXIMO
+        $(this).next().css(cores[0],cores[2]).css(cores[3],cores[4]);
+        // ANTERIORES
+        $(this).prev().css(cores[0],cores[2]).css(cores[3],cores[4]);
+        $(this).prev().prev().css(cores[0],cores[2]).css(cores[3],cores[4]);
+        $(this).prev().prev().prev().css(cores[0],cores[2]).css(cores[3],cores[4]);
+        $(this).prev().prev().prev().prev().css(cores[0],cores[2]).css(cores[3],cores[4]);
+        $(this).prev().prev().prev().prev().prev().css(cores[0],cores[2]).css(cores[3],cores[4]);
+        $(this).prev().prev().prev().prev().prev().prev().css(cores[0],cores[2]).css(cores[3],cores[4]);
+        $(this).prev().prev().prev().prev().prev().prev().prev().css(cores[0],cores[2]).css(cores[3],cores[4]);
+        $(this).prev().prev().prev().prev().prev().prev().prev().prev().css(cores[0],cores[2]).css(cores[3],cores[4]);
+        $(this).prev().prev().prev().prev().prev().prev().prev().prev().prev().css(cores[0],cores[2]).css(cores[3],cores[4]);
+    }
+
+$(this).click(function(){
+
+var getAt = $(this.parentNode).attr('id');
+var valor2;
+var teste = document.getElementById(getAt);
+var bnus = $(teste.firstChild).text();
+var rmaneio = $(teste.firstChild).next().text();
+var tdev = $(teste.firstChild).next().next().text();
+var dataS = $(teste.firstChild).next().next().next().text();
+var funCancel = $(teste.firstChild).next().next().next().next().text();
+var funSolic = $(teste.firstChild).next().next().next().next().next().text();
+var mot = $(teste.firstChild).next().next().next().next().next().next().text();
+var clien = $(teste.firstChild).next().next().next().next().next().next().next().text();
+var dataL = $(teste.firstChild).next().next().next().next().next().next().next().next().text();
+var obs = $(teste.firstChild).next().next().next().next().next().next().next().next().next().next().text();
+var texto = "AGUARDANDO...";
+
+    var trocar = confirm("Deseja Alterar?");
+    if(trocar == true){
+        if($(this).text() == "OK"){
+            texto = "AGUARDANDO...";
+            $(this).text(texto);
+        }else{
+            texto = "OK";
+            $(this).text(texto);
+        }
+    }
+
+valor2 = '<tr id = "' + getAt + '">' +  
+'<td class="bonusClick">' + bnus + '</td>' + 
+'<td>' + rmaneio + '</td>' + 
+'<td>' + tdev + '</td>' + 
+'<td>' + dataS + '</td>' +
+'<td>' + funCancel + '</td>' +
+'<td>' + funSolic + '</td>' + 
+'<td>' + mot + '</td>' +
+'<td>' + clien + '</td>' + 
+'<td>' + dataL + '</td>' + 
+'<td class="novaBonus">' + texto + '</td>' +
+'<td>' + obs + '</td>' + 
+'</tr>';
+
+localStorage.setItem(getAt,valor2);
+
+history.go(0);
+
+});
+
+
+});
+
+};
+
+coresTd();
+
+var optionMotivo = document.getElementById('motivo3');
+for(var j = 0; j < $('input:hidden').length; j++){
+    optionMotivo.innerHTML += "<option class ='reasons' value = '" + j + "'>" + $('input:hidden').eq(j).val() + "</option>"
+}
+
+var o;
+var docx;
+
+$('button.motivo').click('click', function(){
+    o = $(optionMotivo).val();
+    docx = document.getElementsByClassName('reasons')[o].text;
+    if($('#tags').css('display') == 'none'){
+        $('#tags').css('display','block');
+        $('#tags').val(docx);
+        $('select.motivo').css('display','none');
+
+    }else if($('select.motivo').css('display') == 'none'){
+        $('select.motivo').css('display','block');
+        $('#tags').val(docx);
+        $('#tags').css('display','none');
+    }
+});
+
+// REPETINDO LISTA DE FUNCIONÁRIOS
+var total = document.getElementsByTagName('select')[1];
+var novo = document.getElementsByTagName('select')[2];
+
+for(var i = 0;i < total.length; i++){
+    novo.innerHTML += "<option value = 'colab" + i + "'>" + total.options[i].text + "</option>"
+}
+// REPETINDO LISTA DE FUNCIONÁRIOS
+
+var dataArrumado;
+
+$('#inform').hide();
+
+$('.cliente').on('focusin', function(){
+    $('#inform').show().animate({top: 50},500);
+}).on('focusout', function(){
+    $('#inform').animate({top:0},500).hide();
+});
+
+var dat = new Date();
+var meses = ['01','02','03','04','05','06','07','08','09','10','11','12'];
+var dia;
+var result;
+
+if(dat.getDate() < 10){
+    dia = '0' + dat.getDate();
+}else{
+    dia = dat.getDate();
+}
+result = dat.getFullYear() + '-' + meses[dat.getMonth()] + '-' + dia;
+dataArrumado = dia + '/' + meses[dat.getMonth()] + '/' + dat.getFullYear();
+$('input.data').val(result);
+
+var x = 0;
+var valor;
+var doc = document.getElementsByTagName('tbody')[0];
+
+
+$('button#registrar').on('click', function(){
+
+var e = document.getElementById("tipoDevolucao");
+var tipodev = e.options[e.selectedIndex].text;
+
+var f = document.getElementById("func");
+var entrada = f.options[f.selectedIndex].text;
+
+var g = document.getElementById("funcionario2");
+var quemPediu = g.options[g.selectedIndex].text;
+
+var h = document.getElementById("status");
+var novaBonus = h.options[h.selectedIndex].text;
+
+
+// PEGANDO PRIMEIRA DATA
+var months = ['01','02','03','04','05','06','07','08','09','10','11','12'];
+var firstDate = $('input.data:first').val();
+var lastDate = $('input.data#ultimo').val();
+
+var data1 = new Date("'" + firstDate + "'");
+var data2 = new Date("'" + lastDate + "'");
+var d1;
+var d2;
+
+if(data1.getDate() < 10){
+    d1 = "0" + data1.getDate();
+}else{
+    d1 = data1.getDate();
+}
+
+if(data2.getDate() < 10){
+    d2 = "0" + data2.getDate();
+}else{
+    d2 = data2.getDate();
+}
+
+data1completo = d1 + '/' + months[data1.getMonth()] + '/' + data1.getFullYear(firstDate);
+data2completo = d2 + '/' + months[data2.getMonth()] + '/' + data2.getFullYear(lastDate);
+
+if(localStorage.getItem('x') == undefined){
+localStorage.setItem('x', x);
+}else{
+    x = parseInt(localStorage.getItem('x')) + 1;
+    localStorage.setItem('x', x);
+}
+
+$.trim(
+    $('input.motivo').val());
+$.trim(
+    $('input.obs').val());
+
+
+valor = '<tr id = "code' + x + '">' +  
+'<td class="bonusClick">' + $('input.bonus').val() + '</td>' + 
+'<td>' + $('input.romaneio').val() + '</td>' + 
+'<td>' + tipodev + '</td>' + 
+'<td>' + data1completo + '</td>' +
+'<td>' + entrada + '</td>' +
+'<td>' + quemPediu + '</td>' + 
+'<td>' + $('input.motivo').val().toUpperCase() + '</td>' +
+'<td>' + $('input.cliente').val() + '</td>' + 
+'<td>' + data2completo + '</td>' + 
+'<td class="novaBonus">' + novaBonus + '</td>' +
+'<td>' + $('input.obs').val().toUpperCase() + '</td>' + 
+'</tr>';
+
+localStorage.setItem('code' + x, valor);
+history.go(0);
+alert('[' + (parseInt(localStorage.getItem('x')) + 1) + '] registro adicionado!');
+
+});
+
+for(y = 0;y <= parseInt(localStorage.getItem('x')); y++){
+
+if(localStorage.getItem('code' + y) != null){
+doc.innerHTML += localStorage.getItem('code' + y);
+}
+}
+
+coresTd();
+
+var pendencias = $('td.novaBonus:contains("AGUARDANDO...")').length;
+var mensagem = document.createElement('div');
+$(mensagem).show().on('click',function(){$(this).delay(2000).fadeIn(1400).hide();})
+.text('há (' + pendencias + ') pendência(s).')
+.css({'width':'150px',
+'height':'70px',
+'background-color':'black',
+'color':'white',
+'text-align':'center',
+'line-height':'70px',
+'position':'fixed',
+'border':'solid 2px white',
+'left':window.screen.width + 'px',
+'top':window.screen.height - 300 + 'px',
+}).animate({left:window.screen.width - 155},1200).delay(3000).animate({left:window.screen.width},2000);
+
+// LEFT: window.screen.width - 160 + 'px'
+
+$('#inform').after(mensagem);
+
+$('input, select, button').focusin(function(){
+    $(this).css('border','3px solid yellow');
+}).focusout(function(){
+    if($(this).val() == "" && this.tagName != "BUTTON" && $(this).attr("class") != "obs"){
+        $(this).css('border','3px solid red');
+    }else{
+        $(this).css('border','none');
+    }
+    
+});
+
+});
+
+
+</script>
+</body>
+</html>
